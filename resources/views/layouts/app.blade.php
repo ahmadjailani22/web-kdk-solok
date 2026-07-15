@@ -27,6 +27,13 @@
 
     {{-- Main Content --}}
     <main>
+        @if (session('success'))
+            <div class="max-w-6xl mx-auto px-4 mt-4">
+                <div class="bg-green-100 text-green-800 border border-green-300 rounded-lg px-4 py-3 text-sm">
+                    {{ session('success') }}
+                </div>
+            </div>
+        @endif
         @yield('content')
     </main>
 
