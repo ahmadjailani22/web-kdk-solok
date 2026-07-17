@@ -35,7 +35,8 @@ class PortfolioForm
 
                 FileUpload::make('image')
                     ->image()
-                    ->directory('portfolios'),
+                    ->directory('portfolios')
+                    ->disk('public'),
 
                 TextInput::make('client')
                     ->maxLength(255),
