@@ -31,7 +31,8 @@ class ArticleForm
 
                 FileUpload::make('thumbnail')
                     ->image()
-                    ->directory('articles'),
+                    ->directory('articles')
+                    ->disk('public'),
 
                 Select::make('category')
                     ->options([

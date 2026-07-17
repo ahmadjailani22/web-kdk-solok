@@ -37,10 +37,12 @@ class ServiceForm
 
                 FileUpload::make('icon')
                     ->image()
+                    ->disk('public')
                     ->directory('services/icons'),
 
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('services/images'),
 
                 Toggle::make('is_active')
