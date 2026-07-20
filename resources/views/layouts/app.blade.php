@@ -14,6 +14,8 @@
             <a href="{{ route('home') }}" class="text-xl font-bold text-blue-700">
                 Nama Perusahaan
             </a>
+
+            {{-- Menu Desktop --}}
             <nav class="hidden md:flex gap-6 text-sm font-medium">
                 <a href="{{ route('home') }}" class="hover:text-blue-700">Home</a>
                 <a href="{{ route('about') }}" class="hover:text-blue-700">Tentang Kami</a>
@@ -22,7 +24,31 @@
                 <a href="{{ route('articles.index') }}" class="hover:text-blue-700">Berita</a>
                 <a href="{{ route('contact') }}" class="hover:text-blue-700">Kontak</a>
             </nav>
+
+            {{-- Tombol Hamburger (mobile only) --}}
+            <button id="menu-toggle" class="md:hidden text-gray-700" aria-label="Toggle menu">
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
+
+        {{-- Menu Mobile (dropdown) --}}
+        <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-3 space-y-3 text-sm font-medium">
+            <a href="{{ route('home') }}" class="block hover:text-blue-700">Home</a>
+            <a href="{{ route('about') }}" class="block hover:text-blue-700">Tentang Kami</a>
+            <a href="{{ route('services.index') }}" class="block hover:text-blue-700">Layanan</a>
+            <a href="{{ route('portfolios.index') }}" class="block hover:text-blue-700">Portofolio</a>
+            <a href="{{ route('articles.index') }}" class="block hover:text-blue-700">Berita</a>
+            <a href="{{ route('contact') }}" class="block hover:text-blue-700">Kontak</a>
+        </nav>
     </header>
 
     {{-- Main Content --}}
@@ -69,6 +95,19 @@
             &copy; {{ date('Y') }} {{ $settings['company_name'] ?? 'Nama Perusahaan' }}. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+    </script>
 
 </body>
 </html>
