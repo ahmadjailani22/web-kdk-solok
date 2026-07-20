@@ -18,15 +18,15 @@
                 <div class="space-y-4 text-gray-600 text-sm">
                     <div>
                         <p class="font-medium text-gray-800">Alamat</p>
-                        <p>Alamat perusahaan akan tampil di sini</p>
+                        <p>{{ $settings['company_address'] ?? '-' }}</p>
                     </div>
                     <div>
                         <p class="font-medium text-gray-800">Telepon</p>
-                        <p>0800-0000-0000</p>
+                        <p>{{ $settings['company_phone'] ?? '-' }}</p>
                     </div>
                     <div>
                         <p class="font-medium text-gray-800">Email</p>
-                        <p>info@perusahaan.com</p>
+                        <p>{{ $settings['company_email'] ?? '-' }}</p>
                     </div>
                 </div>
 

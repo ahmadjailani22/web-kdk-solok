@@ -11,6 +11,7 @@ class SettingSeeder extends Seeder
     {
         $settings = [
             'company_name' => 'Nama Perusahaan',
+            'company_description' => 'Deskripsi singkat perusahaan.',
             'company_address' => 'Alamat lengkap perusahaan',
             'company_phone' => '0800-0000-0000',
             'company_email' => 'info@perusahaan.com',

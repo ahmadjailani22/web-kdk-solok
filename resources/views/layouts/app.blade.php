@@ -41,26 +41,32 @@
     <footer class="bg-gray-900 text-gray-300 mt-16">
         <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-white font-semibold mb-3">Nama Perusahaan</h3>
-                <p class="text-sm">Deskripsi singkat perusahaan di sini.</p>
+                <h3 class="text-white font-semibold mb-3">{{ $settings['company_name'] ?? 'Nama Perusahaan' }}</h3>
+                <p class="text-sm">{{ $settings['company_description'] ?? 'Deskripsi singkat perusahaan.' }}</p>
             </div>
             <div>
                 <h3 class="text-white font-semibold mb-3">Kontak</h3>
-                <p class="text-sm">Alamat perusahaan</p>
-                <p class="text-sm">Telepon: -</p>
-                <p class="text-sm">Email: -</p>
+                <p class="text-sm">{{ $settings['company_address'] ?? '-' }}</p>
+                <p class="text-sm">Telepon: {{ $settings['company_phone'] ?? '-' }}</p>
+                <p class="text-sm">Email: {{ $settings['company_email'] ?? '-' }}</p>
             </div>
             <div>
-                <h3 class="text-white font-semibold mb-3">Menu</h3>
+                <h3 class="text-white font-semibold mb-3">Ikuti Kami</h3>
                 <ul class="text-sm space-y-1">
-                    <li><a href="{{ route('services.index') }}" class="hover:text-white">Layanan</a></li>
-                    <li><a href="{{ route('portfolios.index') }}" class="hover:text-white">Portofolio</a></li>
-                    <li><a href="{{ route('articles.index') }}" class="hover:text-white">Berita</a></li>
+                    @if (!empty($settings['facebook_url']))
+                        <li><a href="{{ $settings['facebook_url'] }}" target="_blank" class="hover:text-white">Facebook</a></li>
+                    @endif
+                    @if (!empty($settings['instagram_url']))
+                        <li><a href="{{ $settings['instagram_url'] }}" target="_blank" class="hover:text-white">Instagram</a></li>
+                    @endif
+                    @if (!empty($settings['whatsapp_number']))
+                        <li><a href="https://wa.me/{{ $settings['whatsapp_number'] }}" target="_blank" class="hover:text-white">WhatsApp</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
         <div class="border-t border-gray-800 py-4 text-center text-xs">
-            &copy; {{ date('Y') }} Nama Perusahaan. All rights reserved.
+            &copy; {{ date('Y') }} {{ $settings['company_name'] ?? 'Nama Perusahaan' }}. All rights reserved.
         </div>
     </footer>
 
