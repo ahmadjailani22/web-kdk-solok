@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $portfolio->title . ' - Nama Perusahaan')
+@section('meta_description', Str::limit(strip_tags($portfolio->description), 155))
 
 @section('content')
 

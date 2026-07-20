@@ -17,3 +17,5 @@ Route::get('/berita/{article:slug}', [PageController::class, 'articleDetail'])->
 
 Route::get('/kontak', [PageController::class, 'contact'])->name('contact');
 Route::post('/kontak', [PageController::class, 'sendContact'])->name('contact.send');
+
+Route::get('/sitemap.xml', [PageController::class, 'sitemap'])->name('sitemap');

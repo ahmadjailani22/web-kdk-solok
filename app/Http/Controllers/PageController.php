@@ -98,4 +98,16 @@ class PageController extends Controller
 
         return back()->with('success', 'Pesan kamu berhasil dikirim. Terima kasih!');
     }
+
+    public function sitemap()
+    {
+        $services = Service::where('is_active', true)->get();
+        $portfolios = Portfolio::where('is_active', true)->get();
+        $articles = Article::where('is_published', true)->get();
+
+        $content = view('sitemap', compact('services', 'portfolios', 'articles'))->render();
+
+        return response($content, 200)
+            ->header('Content-Type', 'application/xml');
+    }
 }

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Beranda - Nama Perusahaan')
+@section('meta_description', 'Solusi terpercaya untuk kebutuhan perusahaan Anda. Lihat layanan, portofolio, dan berita terbaru kami.')
 
 @section('content')
 

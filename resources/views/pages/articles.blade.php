@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Berita & Artikel - Nama Perusahaan')
+@section('meta_description', 'Informasi dan update terkini seputar perusahaan kami.')
 
 @section('content')
 

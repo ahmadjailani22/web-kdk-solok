@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Portofolio Kami - Nama Perusahaan')
+@section('meta_description', 'Lihat proyek-proyek yang telah kami kerjakan untuk berbagai klien.')
 
 @section('content')
 

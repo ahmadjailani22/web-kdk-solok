@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Kontak Kami - Nama Perusahaan')
+@section('meta_description', 'Hubungi kami untuk konsultasi dan informasi lebih lanjut mengenai layanan kami.')
 
 @section('content')
 

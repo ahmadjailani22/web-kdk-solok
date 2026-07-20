@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Nama Perusahaan')</title>
+    <meta name="description" content="@yield('meta_description', 'Deskripsi singkat perusahaan Anda untuk mesin pencari.')">
+
+    {{-- Open Graph (tampilan saat link dishare di WhatsApp/Facebook/dll) --}}
+    <meta property="og:title" content="@yield('title', 'Nama Perusahaan')">
+    <meta property="og:description" content="@yield('meta_description', 'Deskripsi singkat perusahaan Anda.')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+
+    {{-- Favicon (placeholder dulu, ganti setelah logo jadi) --}}
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white text-gray-800">

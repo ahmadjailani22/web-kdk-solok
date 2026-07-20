@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Tentang Kami - Nama Perusahaan')
+@section('meta_description', 'Kenali lebih dekat sejarah, visi misi, dan tim di balik Nama Perusahaan.')
 
 @section('content')
 
