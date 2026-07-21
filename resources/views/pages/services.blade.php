@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Layanan Kami - Nama Perusahaan')
+@section('title', 'Layanan Kami - Klinik Desain & Kemasan UMKM')
 @section('meta_description', 'Berbagai layanan profesional yang kami sediakan untuk mendukung kebutuhan bisnis Anda.')
 
 @section('content')

@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Nama Perusahaan')</title>
+    <title>@yield('title', 'Klinik Desain & Kemasan UMKM')</title>
     <meta name="description" content="@yield('meta_description', 'Deskripsi singkat perusahaan Anda untuk mesin pencari.')">
 
     {{-- Open Graph (tampilan saat link dishare di WhatsApp/Facebook/dll) --}}
-    <meta property="og:title" content="@yield('title', 'Nama Perusahaan')">
+    <meta property="og:title" content="@yield('title', 'Klinik Desain & Kemasan UMKM')">
     <meta property="og:description" content="@yield('meta_description', 'Deskripsi singkat perusahaan Anda.')">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
 
     {{-- Favicon (placeholder dulu, ganti setelah logo jadi) --}}
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/png" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -22,8 +24,8 @@
     {{-- Header --}}
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="{{ route('home') }}" class="text-xl font-bold text-blue-700">
-                Nama Perusahaan
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('logo.png') }}" alt="Klinik Desain & Kemasan UMKM" class="h-10 md:h-12 w-auto">
             </a>
 
             {{-- Menu Desktop --}}
@@ -78,7 +80,9 @@
     <footer class="bg-gray-900 text-gray-300 mt-16">
         <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-white font-semibold mb-3">{{ $settings['company_name'] ?? 'Nama Perusahaan' }}</h3>
+                <div class="inline-block bg-white rounded-lg px-3 py-2 mb-3">
+                    <img src="{{ asset('logo.png') }}" alt="{{ $settings['company_name'] ?? 'Klinik Desain & Kemasan UMKM' }}" class="h-10 w-auto">
+                </div>
                 <p class="text-sm">{{ $settings['company_description'] ?? 'Deskripsi singkat perusahaan.' }}</p>
             </div>
             <div>
@@ -103,7 +107,7 @@
             </div>
         </div>
         <div class="border-t border-gray-800 py-4 text-center text-xs">
-            &copy; {{ date('Y') }} {{ $settings['company_name'] ?? 'Nama Perusahaan' }}. All rights reserved.
+            &copy; {{ date('Y') }} {{ $settings['company_name'] ?? 'Klinik Desain & Kemasan UMKM' }}. All rights reserved.
         </div>
     </footer>
 

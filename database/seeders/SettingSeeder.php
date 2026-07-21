@@ -10,7 +10,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $settings = [
-            'company_name' => 'Nama Perusahaan',
+            'company_name' => 'Klinik Desain & Kemasan UMKM',
             'company_description' => 'Deskripsi singkat perusahaan.',
             'company_address' => 'Alamat lengkap perusahaan',
             'company_phone' => '0800-0000-0000',

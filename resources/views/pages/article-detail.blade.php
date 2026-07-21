@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $article->title . ' - Nama Perusahaan')
+@section('title', $article->title . ' - Klinik Desain & Kemasan UMKM')
 @section('meta_description', Str::limit(strip_tags($article->content), 155))
 
 @section('content')
