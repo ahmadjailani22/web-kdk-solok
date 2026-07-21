@@ -9,7 +9,7 @@
     <section class="bg-gradient-to-br from-blue-700 to-blue-900 text-white">
         <div class="max-w-6xl mx-auto px-4 py-24 text-center">
             <h1 class="text-3xl md:text-5xl font-bold mb-4">
-                Solusi Terpercaya untuk Kebutuhan Perusahaan Anda
+                Solusi Terpercaya untuk Kebutuhan Usaha Anda
             </h1>
             <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
                 Kami menghadirkan layanan profesional dengan kualitas terbaik untuk mendukung pertumbuhan bisnis Anda.
