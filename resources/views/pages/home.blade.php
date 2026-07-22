@@ -186,67 +186,85 @@
 
     {{-- Layanan --}}
     <section class="max-w-6xl mx-auto px-4 py-16">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl md:text-3xl font-bold">Layanan Kami</h2>
-            <p class="text-gray-500 mt-2">Berbagai layanan yang kami sediakan untuk Anda</p>
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold text-neutral-800 md:text-3xl">
+                Layanan <span class="text-orange-500">Kami</span>
+            </h2>
+            <p class="text-neutral-600 mt-2">Berbagai layanan yang kami sediakan untuk Anda</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
             @forelse ($services as $service)
                 <a href="{{ route('services.show', $service) }}"
-                   class="block border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                class="group relative flex h-64 items-end overflow-hidden rounded-xl shadow-lg outline-hidden">
                     @if ($service->image)
-                        <img src="{{ Storage::url($service->image) }}"
-                             alt="{{ $service->title }}"
-                             class="w-full h-40 object-cover rounded-lg mb-4">
+                        <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}"
+                            class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-110">
+                    @else
+                        <div class="absolute inset-0 h-full w-full bg-neutral-200"></div>
                     @endif
-                    <h3 class="font-semibold text-lg mb-2">{{ $service->title }}</h3>
-                    <p class="text-gray-500 text-sm">{{ $service->short_description }}</p>
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent"></div>
+                    <div class="relative p-5">
+                        <h3 class="text-lg font-bold text-white">{{ $service->title }}</h3>
+                        <p class="text-sm text-neutral-200 mt-1 line-clamp-2">{{ $service->short_description }}</p>
+                    </div>
                 </a>
             @empty
-                <p class="text-gray-400 col-span-3 text-center">Belum ada layanan yang ditambahkan.</p>
+                <p class="text-neutral-400 col-span-3 text-center">Belum ada layanan yang ditambahkan.</p>
             @endforelse
         </div>
 
         @if ($services->count() > 0)
             <div class="text-center mt-8">
-                <a href="{{ route('services.index') }}" class="text-blue-700 font-medium hover:underline">
-                    Lihat Semua Layanan &rarr;
+                <a href="{{ route('services.index') }}"
+                class="inline-flex items-center gap-x-2 text-orange-500 font-bold hover:text-orange-600 transition">
+                    Lihat Semua Layanan
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+                    </svg>
                 </a>
             </div>
         @endif
     </section>
 
     {{-- Portofolio --}}
-    <section class="bg-gray-50 py-16">
+    <section class="bg-neutral-100 py-16">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold">Portofolio Kami</h2>
-                <p class="text-gray-500 mt-2">Proyek-proyek yang telah kami kerjakan</p>
+            <div class="mb-10">
+                <h2 class="text-2xl font-bold text-neutral-800 md:text-3xl">
+                    Portofolio <span class="text-orange-500">Kami</span>
+                </h2>
+                <p class="text-neutral-600 mt-2">Proyek-proyek yang telah kami kerjakan</p>
             </div>
 
             <div class="grid md:grid-cols-4 gap-6">
                 @forelse ($portfolios as $portfolio)
-                    <a href="{{ route('portfolios.show', $portfolio) }}" class="group block">
-                        <div class="overflow-hidden rounded-lg mb-3">
-                            @if ($portfolio->image)
-                                <img src="{{ Storage::url($portfolio->image) }}"
-                                     alt="{{ $portfolio->title }}"
-                                     class="w-full h-40 object-cover group-hover:scale-105 transition">
-                            @endif
-                        </div>
-                        <h3 class="font-medium text-sm">{{ $portfolio->title }}</h3>
-                        <p class="text-gray-400 text-xs">{{ $portfolio->category }}</p>
+                    <a href="{{ route('portfolios.show', $portfolio) }}"
+                    class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg outline-hidden">
+                        @if ($portfolio->image)
+                            <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}"
+                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-110">
+                        @else
+                            <div class="absolute inset-0 h-full w-full bg-neutral-300"></div>
+                        @endif
+                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/10 to-transparent"></div>
+                        <span class="relative mb-3 ml-4 text-sm font-bold text-white">
+                            {{ $portfolio->title }}
+                        </span>
                     </a>
                 @empty
-                    <p class="text-gray-400 col-span-4 text-center">Belum ada portofolio.</p>
+                    <p class="text-neutral-400 col-span-4 text-center">Belum ada portofolio.</p>
                 @endforelse
             </div>
 
             @if ($portfolios->count() > 0)
                 <div class="text-center mt-8">
-                    <a href="{{ route('portfolios.index') }}" class="text-blue-700 font-medium hover:underline">
-                        Lihat Semua Portofolio &rarr;
+                    <a href="{{ route('portfolios.index') }}"
+                    class="inline-flex items-center gap-x-2 text-orange-500 font-bold hover:text-orange-600 transition">
+                        Lihat Semua Portofolio
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+                        </svg>
                     </a>
                 </div>
             @endif
@@ -255,40 +273,39 @@
 
     {{-- Berita Terbaru --}}
     <section class="max-w-6xl mx-auto px-4 py-16">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl md:text-3xl font-bold">Berita Terbaru</h2>
-            <p class="text-gray-500 mt-2">Update dan informasi terkini dari kami</p>
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold text-neutral-800 md:text-3xl">
+                Berita <span class="text-orange-500">Terbaru</span>
+            </h2>
+            <p class="text-neutral-600 mt-2">Update dan informasi terkini dari kami</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
             @forelse ($articles as $article)
                 <a href="{{ route('articles.show', $article) }}"
-                   class="block border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                class="group relative block h-80 overflow-hidden rounded-xl shadow-lg">
                     @if ($article->thumbnail)
-                        <img src="{{ Storage::url($article->thumbnail) }}"
-                             alt="{{ $article->title }}"
-                             class="w-full h-40 object-cover">
+                        <img src="{{ Storage::url($article->thumbnail) }}" alt="{{ $article->title }}"
+                            class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110">
+                    @else
+                        <div class="absolute inset-0 h-full w-full bg-neutral-200"></div>
                     @endif
-                    <div class="p-5">
-                        <p class="text-xs text-gray-400 mb-1">
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-900/85 via-neutral-900/10 to-transparent"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-5">
+                        <p class="text-xs text-neutral-200 mb-1">
                             {{ $article->published_at?->format('d M Y') }}
+                            @if ($article->category)
+                                &bull; {{ $article->category }}
+                            @endif
                         </p>
-                        <h3 class="font-semibold mb-2">{{ $article->title }}</h3>
+                        <h3 class="text-lg font-bold text-white leading-snug">{{ $article->title }}</h3>
                     </div>
                 </a>
             @empty
-                <p class="text-gray-400 col-span-3 text-center">Belum ada berita.</p>
+                <p class="text-neutral-400 col-span-3 text-center">Belum ada berita.</p>
             @endforelse
         </div>
-    </section>
-
-    {{-- CTA --}}
-    <section class="bg-blue-800 text-white py-16 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">Tertarik Bekerja Sama dengan Kami?</h2>
-        <a href="{{ route('contact') }}"
-           class="inline-block bg-white text-blue-800 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition">
-            Hubungi Kami Sekarang
-        </a>
     </section>
 
 @endsection
