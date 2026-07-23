@@ -1,33 +1,42 @@
 @extends('layouts.app')
 
-@section('title', $article->title . ' - Klinik Desain & Kemasan UMKM')
+@section('title', $article->title . ' - Klinik Desain & Kemasan')
 @section('meta_description', Str::limit(strip_tags($article->content), 155))
 
 @section('content')
 
-    <section class="bg-blue-800 text-white py-16 text-center px-4">
-        <h1 class="text-3xl md:text-4xl font-bold max-w-2xl mx-auto">{{ $article->title }}</h1>
-        <p class="text-blue-100 mt-4 text-sm">
-            {{ $article->published_at?->format('d M Y') }}
-            @if ($article->category)
-                &bull; {{ $article->category }}
-            @endif
-        </p>
-    </section>
+    <section class="mx-auto max-w-3xl px-4 py-14">
 
-    <section class="max-w-3xl mx-auto px-4 py-16">
-
-        <a href="{{ route('articles.index') }}" class="text-blue-700 text-sm hover:underline mb-6 inline-block">
-            &larr; Kembali ke Berita
+        <a href="{{ route('articles.index') }}"
+           class="inline-flex items-center gap-x-1 text-sm text-neutral-600 hover:text-orange-500 transition mb-6">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"/>
+            </svg>
+            Kembali ke Berita
         </a>
 
+        <div class="mb-6">
+            @if ($article->category)
+                <span class="inline-block bg-orange-100 text-orange-600 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                    {{ $article->category }}
+                </span>
+            @endif
+            <h1 class="text-3xl font-bold tracking-tight text-neutral-800 md:text-5xl">
+                {{ $article->title }}
+            </h1>
+            <p class="mt-3 text-sm text-neutral-500">
+                {{ $article->published_at?->format('d M Y') }}
+            </p>
+        </div>
+
         @if ($article->thumbnail)
-            <img src="{{ Storage::url($article->thumbnail) }}"
-                 alt="{{ $article->title }}"
-                 class="w-full h-80 object-cover rounded-xl mb-8">
+            <div class="mb-8 overflow-hidden rounded-2xl shadow-lg">
+                <img src="{{ Storage::url($article->thumbnail) }}" alt="{{ $article->title }}"
+                     class="w-full h-80 object-cover">
+            </div>
         @endif
 
-        <div class="prose max-w-none text-gray-700 leading-relaxed">
+        <div class="prose max-w-none text-neutral-700 leading-relaxed">
             {!! $article->content !!}
         </div>
 

@@ -1,44 +1,45 @@
 @extends('layouts.app')
 
-@section('title', 'Berita & Artikel - Klinik Desain & Kemasan UMKM')
-@section('meta_description', 'Informasi dan update terkini seputar perusahaan kami.')
+@section('title', 'Berita & Artikel - Klinik Desain & Kemasan')
+@section('meta_description', 'Informasi dan update terkini seputar Klinik Desain & Kemasan UMKM.')
 
 @section('content')
 
-    <section class="bg-blue-800 text-white py-16 text-center">
-        <h1 class="text-3xl md:text-4xl font-bold">Berita & Artikel</h1>
-        <p class="text-blue-100 mt-2">Informasi dan update terkini dari kami</p>
-    </section>
+    <div class="max-w-6xl mx-auto px-4 py-14">
 
-    <section class="max-w-6xl mx-auto px-4 py-16">
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="mb-8 md:mb-12">
+            <h1 class="text-2xl font-bold tracking-tight text-neutral-800 md:text-4xl">
+                Berita & <span class="text-orange-500">Artikel</span>
+            </h1>
+            <p class="mt-2 max-w-lg text-neutral-600">
+                Informasi dan update terkini dari kami.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
             @forelse ($articles as $article)
                 <a href="{{ route('articles.show', $article) }}"
-                   class="block border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
-                    <div class="h-44 overflow-hidden">
-                        @if ($article->thumbnail)
-                            <img src="{{ Storage::url($article->thumbnail) }}"
-                                 alt="{{ $article->title }}"
-                                 class="w-full h-full object-cover">
-                        @else
-                            <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 text-sm">
-                                Tidak ada gambar
-                            </div>
-                        @endif
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-2">
-                            <span>{{ $article->published_at?->format('d M Y') }}</span>
+                   class="group relative block h-80 overflow-hidden rounded-xl shadow-lg">
+                    @if ($article->thumbnail)
+                        <img src="{{ Storage::url($article->thumbnail) }}" alt="{{ $article->title }}"
+                             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110">
+                    @else
+                        <div class="absolute inset-0 h-full w-full bg-neutral-200"></div>
+                    @endif
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-900/85 via-neutral-900/10 to-transparent"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-5">
+                        <p class="text-xs text-neutral-200 mb-1">
+                            {{ $article->published_at?->format('d M Y') }}
                             @if ($article->category)
-                                <span>&bull;</span>
-                                <span>{{ $article->category }}</span>
+                                &bull; {{ $article->category }}
                             @endif
-                        </div>
-                        <h3 class="font-semibold text-lg leading-snug">{{ $article->title }}</h3>
+                        </p>
+                        <h3 class="text-lg font-bold text-white leading-snug">{{ $article->title }}</h3>
                     </div>
                 </a>
             @empty
-                <p class="text-gray-400 col-span-3 text-center">Belum ada berita yang dipublikasikan.</p>
+                <p class="text-neutral-400 col-span-3 text-center">Belum ada berita yang dipublikasikan.</p>
             @endforelse
         </div>
 
@@ -47,6 +48,7 @@
                 {{ $articles->links() }}
             </div>
         @endif
-    </section>
+
+    </div>
 
 @endsection
