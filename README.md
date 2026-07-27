@@ -49,7 +49,7 @@ Tampilan halaman publik diadaptasi dan dimodifikasi dari template **[ScrewFast](
 
 ```bash
 # Clone repository
-git clone <url-repository-ini>
+git clone https://github.com/ahmadjailani22/web-kdk-solok.git
 cd web-kdk-solok
 
 # Install dependency PHP
