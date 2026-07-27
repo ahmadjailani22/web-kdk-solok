@@ -1,58 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Klinik Desain & Kemasan (KDK) UMKM — Company Profile Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Website company profile untuk **Klinik Desain & Kemasan UMKM**, dibangun menggunakan Laravel dengan admin panel berbasis Filament v4. Website ini menampilkan layanan, portofolio, dan berita perusahaan, serta menyediakan form kontak yang terintegrasi langsung dengan panel admin.
 
-## About Laravel
+## ✨ Fitur
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Halaman Publik
+- **Home** — hero section, ringkasan layanan unggulan, portofolio terbaru, dan berita terkini
+- **Tentang Kami** — sejarah, visi & misi, serta tim
+- **Layanan** — daftar layanan (list + halaman detail per layanan)
+- **Portofolio** — galeri proyek yang telah dikerjakan (list + detail, dengan pagination)
+- **Berita/Blog** — artikel & update terkini (list + detail, dengan pagination)
+- **Kontak** — form kontak yang tersimpan otomatis ke admin panel, dilengkapi validasi
+- Navigasi responsif dengan mobile menu (hamburger)
+- SEO dasar: meta description per halaman, sitemap.xml otomatis dari database
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Admin Panel (Filament v4)
+- **Service** — kelola layanan (judul, slug otomatis, deskripsi, gambar, status aktif, urutan tampil)
+- **Portfolio** — kelola portofolio (kategori, klien, tahun, gambar)
+- **Article** — kelola artikel dengan Rich Text Editor, status publish terjadwal
+- **Message** — daftar pesan masuk dari form kontak (read-only, dengan badge notifikasi pesan belum dibaca)
+- **Setting** — pengaturan umum (nama perusahaan, alamat, kontak, sosial media) yang otomatis tersinkron ke seluruh halaman publik
+- Dashboard dengan **Stats Overview** (ringkasan jumlah layanan, portofolio, artikel, dan pesan belum dibaca)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Tech Stack
 
-## Learning Laravel
+| Kategori | Teknologi |
+|---|---|
+| Backend | Laravel 12 |
+| Admin Panel | Filament v4 |
+| Database | MySQL |
+| Frontend | Blade Templating, Tailwind CSS v4 |
+| Build Tool | Vite |
+| Local Dev | Laragon |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🎨 Desain
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Tampilan halaman publik diadaptasi dan dimodifikasi dari template **[ScrewFast](https://themewagon.github.io/screwfast/)** oleh [ThemeWagon](https://themewagon.com/) (Astro + Tailwind CSS + Preline UI), yang telah disesuaikan sepenuhnya ke Laravel Blade dan vanilla JavaScript (tanpa dependency Astro/Preline), serta disesuaikan dengan identitas brand Klinik Desain & Kemasan UMKM.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🚀 Instalasi & Setup
 
-## Agentic Development
+### Prasyarat
+- PHP >= 8.2
+- Composer
+- Node.js & npm
+- MySQL
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Langkah instalasi
 
 ```bash
-composer require laravel/boost --dev
+# Clone repository
+git clone <url-repository-ini>
+cd web-kdk-solok
 
-php artisan boost:install
+# Install dependency PHP
+composer install
+
+# Install dependency Node.js
+npm install
+
+# Copy file environment
+cp .env.example .env
+php artisan key:generate
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Sesuaikan konfigurasi database di file `.env`:
 
-## Contributing
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_kdk_solok
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Lanjutkan setup:
 
-## Code of Conduct
+```bash
+# Jalankan migration
+php artisan migrate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Isi data awal Setting (nama perusahaan, kontak, dll)
+php artisan db:seed --class=SettingSeeder
 
-## Security Vulnerabilities
+# Buat symlink storage (wajib untuk menampilkan gambar upload)
+php artisan storage:link
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Buat akun admin
+php artisan make:filament-user
+```
 
-## License
+Jalankan development server (2 terminal terpisah):
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+# Terminal 1 — Laravel
+php artisan serve
+
+# Terminal 2 — Vite (compile Tailwind CSS)
+npm run dev
+```
+
+Akses:
+- Website publik: `http://127.0.0.1:8000`
+- Admin panel: `http://127.0.0.1:8000/admin`
+
+## 📁 Struktur Folder Penting
+
+```
+app/
+  Filament/
+    Resources/        → CRUD admin panel (Service, Portfolio, Article, Message, Setting)
+    Widgets/           → Widget dashboard (Stats Overview)
+  Http/Controllers/
+    PageController.php → Controller halaman publik
+  Models/               → Service, Portfolio, Article, Message, Setting
+
+resources/
+  views/
+    layouts/app.blade.php  → Layout utama (header, footer, navigasi)
+    pages/                  → Semua halaman publik
+  css/app.css               → Konfigurasi Tailwind CSS
+
+database/
+  migrations/          → Skema tabel
+  seeders/
+    SettingSeeder.php  → Data awal pengaturan perusahaan
+
+routes/web.php          → Routing halaman publik
+```
+
+## 📦 Build untuk Production
+
+```bash
+npm run build
+```
+
+## 📄 Lisensi
+
+Project ini dibuat untuk kebutuhan internal Klinik Desain & Kemasan UMKM.
