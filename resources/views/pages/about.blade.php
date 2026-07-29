@@ -15,10 +15,9 @@
 
         <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
             <div>
-                <h2 class="text-2xl font-bold text-neutral-800 mb-4">Sejarah Kami</h2>
+                <h2 class="text-2xl font-bold text-neutral-800 mb-4">Sejarah KDK</h2>
                 <p class="text-neutral-600 leading-relaxed">
-                    Tulis sejarah singkat perusahaan di sini — kapan berdiri, latar belakang, dan
-                    perjalanan bisnis hingga saat ini.
+                    Klinik Desain & Kemasan UMKM berdiri pada tahun 2020 dengan tujuan untuk meningkatkan kualitas desain kemasan produk UMKM di Kabupaten Solok.
                 </p>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg h-64">
@@ -30,13 +29,17 @@
             <div class="rounded-2xl bg-neutral-100 p-6">
                 <h3 class="font-bold text-lg text-neutral-800 mb-2">Visi</h3>
                 <p class="text-neutral-600 text-sm leading-relaxed">
-                    Tulis visi perusahaan di sini.
+                    Produk UMKM Kabupaten Solok dapat naik kelas dan berstandar nasional melalui desain kemasan yang menarik dan profesional.
                 </p>
             </div>
             <div class="rounded-2xl bg-neutral-100 p-6">
                 <h3 class="font-bold text-lg text-neutral-800 mb-2">Misi</h3>
                 <p class="text-neutral-600 text-sm leading-relaxed">
-                    Tulis misi perusahaan di sini, bisa dalam bentuk poin-poin.
+                    1. Mengembangkan desain merek dan kemasan dalam rangka meningkatkan daya tarik merek dan tampilan serta pemenuhan persyaratan teknis yang baik untuk produk UMKM Kabupaten Solok. <br>
+                    2. Menjadi mitra kerja yang profesional dan kreatif bagi UMKM di Kabupaten Solok dalam pengembangan desain merek dan kemasan produk. <br>
+                    3. Melakukan pembaharuan kemasan sesuai dengan selera konsumen. <br>
+                    4. Memberikan edukasi kepada pelaku UMKM dan transfer IPTEK kepada pelajar dan mahasiswa di Kabupaten Solok dalam pengembangan desain merek dan kemasan produk. <br>
+                    5. Meningkatkan kesadaran dan kepedulian masyarakat terhadap merek, kemasan, dan branding untuk peningkatan pemasaran produk. 
                 </p>
             </div>
         </div>
