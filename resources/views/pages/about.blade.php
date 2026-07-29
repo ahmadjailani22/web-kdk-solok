@@ -45,15 +45,29 @@
         </div>
 
         <div>
-            <h2 class="text-2xl font-bold text-neutral-800 mb-6 text-center">Tim Kami</h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                @for ($i = 0; $i < 4; $i++)
+            <h2 class="text-2xl font-bold text-neutral-800 mb-6 text-center">Tim KDK</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+                @php
+                    $team = [
+                        ['name' => 'Syawlani Affandi, S.Sn', 'position' => 'Ketua'],
+                        ['name' => 'Afrialdi, SE, MM', 'position' => 'Koordinator'],
+                        ['name' => 'Aulia Andri, S.Kom', 'position' => 'Desain Grafis'],
+                        ['name' => 'Ikhwanul Fajri, S.Pd', 'position' => 'Tenaga Pemasaran dan Branding'],
+                        ['name' => 'Yopi Despita, ST', 'position' => 'Laporan Layanan dan Penerimaan PAD'],
+                        ['name' => 'Fakhrul Rozi Asnur, S.Kom', 'position' => 'Tenaga Studio Fotografi dan Digital Marketing'],
+                        ['name' => 'Aifan Nasri', 'position' => 'Keamanan'],
+                    ];
+                @endphp
+
+                @foreach ($team as $member)
                     <div class="text-center">
                         <div class="w-24 h-24 mx-auto bg-neutral-200 rounded-full mb-3"></div>
-                        <p class="font-bold text-sm text-neutral-800">Nama Anggota</p>
-                        <p class="text-neutral-500 text-xs">Jabatan</p>
+                        <p class="font-bold text-sm text-neutral-800">{{ $member['name'] }}</p>
+                        <p class="text-neutral-500 text-xs mt-0.5">{{ $member['position'] }}</p>
                     </div>
-                @endfor
+                @endforeach
+
             </div>
         </div>
     </div>
