@@ -17,7 +17,9 @@
             <div>
                 <h2 class="text-2xl font-bold text-neutral-800 mb-4">Sejarah KDK</h2>
                 <p class="text-neutral-600 leading-relaxed">
-                    Klinik Desain & Kemasan UMKM berdiri pada tahun 2020 dengan tujuan untuk meningkatkan kualitas desain kemasan produk UMKM di Kabupaten Solok.
+                    Klinik Desain & Kemasan UMKM berdiri pada tahun 2020 dengan tujuan untuk meningkatkan kualitas desain kemasan produk UMKM di Kabupaten Solok. <br>
+                    Para pelaku usaha UMKM di Kabupaten Solok pada umumnya belum memahami arti penting dari sebuah merek, label, kemasan, dan persyaratan untuk sebuah desain merek label dan kemasan yang baik guna kemajuan usahanya. <br>
+                    Pemahaman tentang promosi dan branding produk yang dihasilkan juga masih lemah sehingga walaupun dari rasa maupun mutu tidak kalah dengan produk sejenis daerah lainnya, namun berakibat mengurangi kepercayaan dan minat pembeli.
                 </p>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg h-64">
