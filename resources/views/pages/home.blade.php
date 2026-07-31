@@ -54,7 +54,7 @@
                     Kenapa Pilih Kami
                 </h2>
                 <p class="mt-2 text-pretty text-neutral-600 md:mt-4">
-                    Kami memahami tantangan UMKM dalam bersaing di pasar — dari desain hingga kemasan, kami bantu setiap langkahnya.
+                    Kami memahami tantangan UMKM dalam bersaing di pasar dari desain hingga kemasan, kami bantu setiap langkahnya.
                 </p>
             </div>
 
