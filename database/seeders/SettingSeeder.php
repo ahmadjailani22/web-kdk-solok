@@ -18,6 +18,7 @@ class SettingSeeder extends Seeder
             'facebook_url' => '',
             'instagram_url' => '',
             'whatsapp_number' => '',
+            'youtube_url' => '',
         ];
 
         foreach ($settings as $key => $value) {

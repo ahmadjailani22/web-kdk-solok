@@ -146,6 +146,14 @@
                             </svg>
                         </a>
                     @endif
+                    @if (!empty($settings['youtube_url']))
+                        <a href="{{ $settings['youtube_url'] }}" target="_blank"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-200 text-neutral-600 transition hover:bg-orange-500 hover:text-white">
+                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-1.604-.122-8.015-.122-8.015-.122s-6.411 0-8.015.122c-1.604.123-2.84 1.36-2.963 2.964C0 7.789 0 12 0 12s0 4.211.122 5.852c.123 1.604 1.36 2.84 2.964 2.963C3.6 21 12 21 12 21s8.4 0 10.016-.185c1.604-.123 2.84-1.36 2.963-2.964C24 16.211 24 12 24 12s0-4.211-.185-5.852c-.123-1.604-1.36-2.84-2.964-2.963zM9.545 15V9l6 3-6 3z"/>
+                            </svg>
+                        </a>
+                    @endif
                 </div>
 
             </div>
