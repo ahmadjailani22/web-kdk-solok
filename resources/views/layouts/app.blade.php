@@ -35,6 +35,7 @@
                 <a href="{{ route('services.index') }}" class="hover:text-blue-700">Layanan</a>
                 <a href="{{ route('portfolios.index') }}" class="hover:text-blue-700">Portofolio</a>
                 <a href="{{ route('articles.index') }}" class="hover:text-blue-700">Berita</a>
+                <a href="{{ route('gallery.index') }}" class="hover:text-blue-700">Galeri</a>
                 <a href="{{ route('contact') }}" class="hover:text-blue-700">Kontak</a>
             </nav>
 
@@ -60,6 +61,7 @@
             <a href="{{ route('services.index') }}" class="block hover:text-blue-700">Layanan</a>
             <a href="{{ route('portfolios.index') }}" class="block hover:text-blue-700">Portofolio</a>
             <a href="{{ route('articles.index') }}" class="block hover:text-blue-700">Berita</a>
+            <a href="{{ route('gallery.index') }}" class="block hover:text-blue-700">Galeri</a>
             <a href="{{ route('contact') }}" class="block hover:text-blue-700">Kontak</a>
         </nav>
     </header>
@@ -185,6 +187,32 @@
                     content.classList.toggle('hidden', content.id !== target);
                 });
             });
+        });
+    </script>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        document.querySelectorAll('.gallery-photo').forEach(btn => {
+            btn.addEventListener('click', () => {
+                lightboxImage.src = btn.dataset.full;
+                lightboxCaption.textContent = btn.dataset.caption || '';
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
         });
     </script>
 

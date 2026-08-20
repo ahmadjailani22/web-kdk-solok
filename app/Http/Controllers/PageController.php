@@ -7,6 +7,7 @@ use App\Models\Message;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Setting;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -109,5 +110,15 @@ class PageController extends Controller
 
         return response($content, 200)
             ->header('Content-Type', 'application/xml');
+    }
+
+    public function gallery()
+    {
+        $galleries = Gallery::where('is_active', true)
+            ->with('photos')
+            ->orderByDesc('event_date')
+            ->get();
+
+        return view('pages.gallery', compact('galleries'));
     }
 }

@@ -28,3 +28,5 @@ Route::prefix('kehadiran')->name('kehadiran.')->group(function () {
     Route::get('/daftar', [KehadiranController::class, 'createForm'])->name('daftar');
     Route::post('/daftar', [KehadiranController::class, 'store'])->name('daftar.store');
 });
+
+Route::get('/galeri', [PageController::class, 'gallery'])->name('gallery.index');
