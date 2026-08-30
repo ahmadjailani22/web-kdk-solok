@@ -17,7 +17,7 @@
             <div>
                 <h2 class="text-2xl font-bold text-neutral-800 mb-4">Sejarah KDK</h2>
                 <p class="text-neutral-600 leading-relaxed">
-                    Klinik Desain dan Kemasan (KDK) UMKM Kabupaten Solok diresmikan pada akhir tahun 2022 di bawah naungan Dinas Koperasi, Usaha Kecil Menengah, Perindustrian dan Perdagangan (DKUKMPP) Kabupaten Solok, berlokasi di Selayo, Kecamatan Kubung. Kehadiran KDK merupakan wujud komitmen Pemerintah Kabupaten Solok dalam mendorong produk UMKM lokal agar lebih berdaya saing, baik dari segi desain kemasan, identitas visual (logo dan branding), maupun kelengkapan legalitas usaha. <br>
+                    Klinik Desain dan Kemasan (KDK) UMKM Kabupaten Solok diresmikan pada akhir tahun 2022 yang didirikan oleh Dinas Koperasi, Usaha Kecil Menengah, Perindustrian dan Perdagangan (DKUKMPP) Kabupaten Solok, berlokasi di Selayo, Kecamatan Kubung. Kehadiran KDK merupakan wujud komitmen Pemerintah Kabupaten Solok dalam mendorong produk UMKM lokal agar lebih berdaya saing, baik dari segi desain kemasan, identitas visual (logo dan branding), maupun kelengkapan legalitas usaha. <br>
                     Layanan yang kami sediakan meliputi konsultasi kemasan, desain kemasan dan poster, branding, pendampingan pengurusan NIB, hingga konsultasi proposal bantuan peralatan bagi pelaku UMKM. Sejak awal beroperasi, KDK telah melayani ratusan UMKM di Kabupaten Solok, membantu produk mereka tampil lebih profesional dan siap bersaing di pasar modern maupun minimarket. <br>
                 </p>
             </div>
