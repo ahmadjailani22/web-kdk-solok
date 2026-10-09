@@ -45,12 +45,27 @@
             </div>
         </div>
 
-        <div>
-            <h2 class="text-2xl font-bold text-neutral-800 mb-6 text-center">Tim KDK</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-                @php
-                    $team = [
+        @php
+            $groups = [
+                [
+                    'title' => 'Pengarah',
+                    'columns' => 'md:grid-cols-1',
+                    'members' => [
+                        ['name' => 'Radiyatul Hayat, SH, MH', 'position' => 'Kepala Dinas'],
+                    ],
+                ],
+                [
+                    'title' => 'Penanggung Jawab',
+                    'columns' => 'md:grid-cols-2',
+                    'members' => [
+                        ['name' => 'Catra Desiana, SP', 'position' => 'Sekretaris Dinas'],
+                        ['name' => 'Helvi Yuliati, SH', 'position' => 'Kepala Bidang UKM'],
+                    ],
+                ],
+                [
+                    'title' => 'Tim Pengelola',
+                    'columns' => 'md:grid-cols-4',
+                    'members' => [
                         ['name' => 'Syawlani Affandi, S.Sn', 'position' => 'Ketua'],
                         ['name' => 'Afrialdi, SE, MM', 'position' => 'Koordinator'],
                         ['name' => 'Aulia Andri, S.Kom', 'position' => 'Desain Grafis'],
@@ -58,18 +73,26 @@
                         ['name' => 'Yopi Despita, ST', 'position' => 'Laporan Layanan dan Penerimaan PAD'],
                         ['name' => 'Fakhrul Rozi Asnur, S.Kom', 'position' => 'Tenaga Studio Fotografi dan Digital Marketing'],
                         ['name' => 'Aifan Nasri', 'position' => 'Keamanan'],
-                    ];
-                @endphp
+                    ],
+                ],
+            ];
+        @endphp
 
-                @foreach ($team as $member)
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto bg-neutral-200 rounded-full mb-3"></div>
-                        <p class="font-bold text-sm text-neutral-800">{{ $member['name'] }}</p>
-                        <p class="text-neutral-500 text-xs mt-0.5">{{ $member['position'] }}</p>
+        <div class="space-y-12">
+            @foreach ($groups as $group)
+                <div>
+                    <h2 class="text-2xl font-bold text-neutral-800 mb-6 text-center">{{ $group['title'] }}</h2>
+                    <div class="grid grid-cols-2 {{ $group['columns'] }} gap-6 justify-items-center">
+                        @foreach ($group['members'] as $member)
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto bg-neutral-200 rounded-full mb-3"></div>
+                                <p class="font-bold text-sm text-neutral-800">{{ $member['name'] }}</p>
+                                <p class="text-neutral-500 text-xs mt-0.5">{{ $member['position'] }}</p>
+                            </div>
+                        @endforeach
                     </div>
-                @endforeach
-
-            </div>
+                </div>
+            @endforeach
         </div>
     </div>
 
