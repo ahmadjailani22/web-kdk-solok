@@ -49,14 +49,14 @@
             $groups = [
                 [
                     'title' => 'Pengarah',
-                    'columns' => 'md:grid-cols-1',
+                    'layout' => 'flex flex-wrap justify-center gap-6',
                     'members' => [
                         ['name' => 'Radiyatul Hayat, SH, MH', 'position' => 'Kepala Dinas'],
                     ],
                 ],
                 [
-                    'title' => 'Penanggung Jawab',
-                    'columns' => 'md:grid-cols-2',
+                    'title' => 'Pembina',
+                    'layout' => 'grid grid-cols-2 gap-6 justify-items-center',
                     'members' => [
                         ['name' => 'Catra Desiana, SP', 'position' => 'Sekretaris Dinas'],
                         ['name' => 'Helvi Yuliati, SH', 'position' => 'Kepala Bidang UKM'],
@@ -64,9 +64,9 @@
                 ],
                 [
                     'title' => 'Tim Pengelola',
-                    'columns' => 'md:grid-cols-4',
+                    'layout' => 'grid grid-cols-2 md:grid-cols-4 gap-6',
                     'members' => [
-                        ['name' => 'Syawlani Affandi, S.Sn', 'position' => 'Ketua'],
+                        ['name' => 'Syawlani Affandi, S.Sn', 'position' => 'Penanggung Jawab'],
                         ['name' => 'Afrialdi, SE, MM', 'position' => 'Koordinator'],
                         ['name' => 'Aulia Andri, S.Kom', 'position' => 'Desain Grafis'],
                         ['name' => 'Ikhwanul Fajri, S.Pd', 'position' => 'Tenaga Pemasaran dan Branding'],
@@ -78,11 +78,11 @@
             ];
         @endphp
 
-        <div class="space-y-12">
+        <div>
             @foreach ($groups as $group)
-                <div>
+                <div class="mb-16">
                     <h2 class="text-2xl font-bold text-neutral-800 mb-6 text-center">{{ $group['title'] }}</h2>
-                    <div class="grid grid-cols-2 {{ $group['columns'] }} gap-6 justify-items-center">
+                    <div class="{{ $group['layout'] }}">
                         @foreach ($group['members'] as $member)
                             <div class="text-center">
                                 <div class="w-24 h-24 mx-auto bg-neutral-200 rounded-full mb-3"></div>
