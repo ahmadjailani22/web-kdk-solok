@@ -51,28 +51,28 @@
                     'title' => 'Pengarah',
                     'layout' => 'flex flex-wrap justify-center gap-6',
                     'members' => [
-                        ['name' => 'Radiyatul Hayat, SH, MH', 'position' => 'Kepala Dinas'],
+                        ['name' => 'Radiyatul Hayat, SH, MH', 'position' => 'Kepala Dinas', 'photo' => 'images/team/radiyatul-hayat.jpg'],
                     ],
                 ],
                 [
                     'title' => 'Pembina',
                     'layout' => 'grid grid-cols-2 gap-6 justify-items-center',
                     'members' => [
-                        ['name' => 'Catra Desiana, SP', 'position' => 'Sekretaris Dinas'],
-                        ['name' => 'Helvi Yuliati, SH', 'position' => 'Kepala Bidang UKM'],
+                        ['name' => 'Catra Desiana, SP', 'position' => 'Sekretaris Dinas', 'photo' => 'images/team/catra-desiana.jpg'],
+                        ['name' => 'Helvi Yuliati, SH', 'position' => 'Kepala Bidang UKM', 'photo' => 'images/team/helvi-yuliati.jpg'],
                     ],
                 ],
                 [
                     'title' => 'Tim Pengelola',
                     'layout' => 'grid grid-cols-2 md:grid-cols-4 gap-6',
                     'members' => [
-                        ['name' => 'Syawlani Affandi, S.Sn', 'position' => 'Penanggung Jawab'],
-                        ['name' => 'Afrialdi, SE, MM', 'position' => 'Koordinator'],
-                        ['name' => 'Aulia Andri, S.Kom', 'position' => 'Desain Grafis'],
-                        ['name' => 'Ikhwanul Fajri, S.Pd', 'position' => 'Tenaga Pemasaran dan Branding'],
-                        ['name' => 'Yopi Despita, ST', 'position' => 'Laporan Layanan dan Penerimaan PAD'],
-                        ['name' => 'Fakhrul Rozi Asnur, S.Kom', 'position' => 'Tenaga Studio Fotografi dan Digital Marketing'],
-                        ['name' => 'Aifan Nasri', 'position' => 'Keamanan'],
+                        ['name' => 'Syawlani Affandi, S.Sn', 'position' => 'Penanggung Jawab', 'photo' => 'images/team/syawlani-affandi.jpg'],
+                        ['name' => 'Afrialdi, SE, MM', 'position' => 'Koordinator', 'photo' => 'images/team/afrialdi.jpg'],
+                        ['name' => 'Aulia Andri, S.Kom', 'position' => 'Desain Grafis', 'photo' => 'images/team/aulia-andri.jpeg'],
+                        ['name' => 'Ikhwanul Fajri, S.Pd', 'position' => 'Tenaga Pemasaran dan Branding', 'photo' => 'images/team/ikhwanul-fajri.jpg'],
+                        ['name' => 'Yopi Despita, ST', 'position' => 'Laporan Layanan dan Penerimaan PAD', 'photo' => 'images/team/yopi-despita.jpg'],
+                        ['name' => 'Fakhrul Rozi Asnur, S.Kom', 'position' => 'Tenaga Studio Fotografi dan Digital Marketing', 'photo' => 'images/team/fakhrul-rozi.jpg'],
+                        ['name' => 'Aifan Nasri', 'position' => 'Keamanan', 'photo' => 'images/team/aifan-nasri.jpg'],
                     ],
                 ],
             ];
@@ -85,7 +85,12 @@
                     <div class="{{ $group['layout'] }}">
                         @foreach ($group['members'] as $member)
                             <div class="text-center">
-                                <div class="w-24 h-24 mx-auto bg-neutral-200 rounded-full mb-3"></div>
+                                @if (!empty($member['photo']))
+                                    <img src="{{ asset($member['photo']) }}" alt="{{ $member['name'] }}"
+                                        class="w-24 h-24 mx-auto rounded-full object-cover mb-3">
+                                @else
+                                    <div class="w-24 h-24 mx-auto bg-neutral-200 rounded-full mb-3"></div>
+                                @endif
                                 <p class="font-bold text-sm text-neutral-800">{{ $member['name'] }}</p>
                                 <p class="text-neutral-500 text-xs mt-0.5">{{ $member['position'] }}</p>
                             </div>
